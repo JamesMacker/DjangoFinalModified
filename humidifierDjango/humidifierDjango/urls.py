@@ -14,11 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from humidifierDjango import views
+from django.urls import path
+from humidifierDjango.views import index_view, fetch_data_view  # Corrected import
+from .views import update_humidity
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.index, name="index"),
-
+    path('', index_view, name='index'),
+    path('fetch-data/', fetch_data_view, name='fetch-data'),  # Correct usage of fetch_data_view
+    path('update_humidity/', update_humidity, name='update_humidity'),
 ]
+

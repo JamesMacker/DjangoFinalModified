@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page!!!</title>
+</head>
+<body>
+    <button id="fetchDataButton">Fetch data</button>
+    <textarea id="dataDisplayArea" rows="10" cols="50">Data will appear here...</textarea>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#fetchDataButton').click(function() {
+                $.ajax({
+                    url: '/fetch-data/',
+                    type: 'get',
+                    success: function(response) {
+                        $('#dataDisplayArea').val(JSON.stringify(response));
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
