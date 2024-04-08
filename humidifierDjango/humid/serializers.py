@@ -2,7 +2,7 @@
 from rest_framework import serializers
 from .models import humidity
 from .models import temperature
-from .models import airQuality
+from .models import tvoc
 from .models import time
 
 class HumiditySerializer(serializers.ModelSerializer):
@@ -15,9 +15,9 @@ class TemperatureSerializer(serializers.ModelSerializer):
         model = temperature
         fields = '__all__'
 
-class AirQualitySerializer(serializers.ModelSerializer):
+class TvocSerializer(serializers.ModelSerializer):
     class Meta:
-        model = airQuality
+        model = tvoc
         fields = '__all__'
 
 class TimeSerializer(serializers.ModelSerializer):
